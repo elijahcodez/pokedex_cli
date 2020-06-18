@@ -1,6 +1,9 @@
-require "pokedex_cli/version"
+require_relative "./pokedex_cli/version"
 
-module PokedexCli
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative './pokedex_cli/api.rb'
+
+require_relative './pokedex_cli/cli.rb'
+
+require_relative './pokedex_cli/pokedex.rb'
+
+puts "environment file"

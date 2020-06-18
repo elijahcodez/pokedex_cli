@@ -1,0 +1,14 @@
+1. Build CLI.
+
+2. Welcome user, prompt to open Pokedex by selecting open or exit.
+
+3. If they select open, print lists of Pokemon.
+
+4. If they select exit, exit program.
+
+
+Classes:
+ - CLI
+ - Pokedex
+ - API
+ 
