@@ -2,7 +2,7 @@ class Pokedex
 
     @@all = []
 
-    attr_accessor :entry_number, :pokemon_species
+    attr_accessor :pokemon_species
 
 #    def initialize(entry_number, pokemon_species, name)
 #        @entry_number = entry_number

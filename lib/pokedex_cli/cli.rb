@@ -15,8 +15,7 @@ class PokedexCli::CLI
       input = gets.strip.downcase
 
       if input == "open"
-          pokemon_list
-          menu
+          menu_2
       elsif input == "exit"
           goodbye
       else
@@ -24,6 +23,25 @@ class PokedexCli::CLI
           menu
       end
 
+  end
+
+  def menu_2
+
+      puts "To view Pokemon, enter 'view'"
+      puts "To exit your Pokedex, enter 'exit'"
+
+      input = gets.strip.downcase
+
+      if input == "view"
+          pokemon_list
+          menu
+
+      elsif input == "exit"
+          goodbye
+      else
+          invalid_entry
+          menu
+      end
   end
 
   def pokemon_list
