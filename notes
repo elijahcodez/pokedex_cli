@@ -2,10 +2,15 @@
 
 2. Welcome user, prompt to open Pokedex by selecting open or exit.
 
-3. If they select open, print lists of Pokemon.
+3. If they select open, prompts user to view list of Pokemon or exit.
 
-4. If they select exit, exit program.
+4. If they select view, prints list of pokemon and prompts user to access Pokemon descriptions by entering a Pokemon name.
 
+5. After entering a Pokemon name, prints description of Pokemon.
+
+6. Gives user the option to view another Pokemon's description or exit.
+
+7. If they select exit, exit program.
 
 Classes:
  - CLI

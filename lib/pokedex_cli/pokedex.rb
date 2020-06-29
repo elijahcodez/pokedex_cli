@@ -2,7 +2,9 @@ class Pokedex
 
     @@all = []
 
-    attr_accessor :pokemon_species
+    @@descriptions = []
+
+    attr_accessor :name, :url, :description
 
 #    def initialize(entry_number, pokemon_species, name)
 #        @entry_number = entry_number
@@ -27,9 +29,13 @@ class Pokedex
         @@all
     end
 
-    def self.find_by_pokemon_species(pokemon_species)
+    def self.descriptions
+        @@descriptions
+    end
+
+    def self.find_by_name(name)
         self.all.select do |pokemon|
-            pokemon.pokemon_species == pokemon_species
+            pokemon.name == name
         end
     end
 

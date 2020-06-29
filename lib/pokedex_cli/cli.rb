@@ -3,29 +3,30 @@ class PokedexCli::CLI
   def call
 
       puts "Welcome Trainer!"
-      puts "To use your Pokedex, enter 'open'"
-      puts "To exit your Pokedex, enter 'exit'"
+      puts "Loading..."
       API.get_data
-      menu
+      pokedex_menu
 
   end
 
-  def menu
+  def pokedex_menu
+      puts "To use your Pokedex, enter 'open'"
+      puts "To exit your Pokedex, enter 'exit'"
 
       input = gets.strip.downcase
 
       if input == "open"
-          menu_2
+          pokemon_menu
       elsif input == "exit"
           goodbye
       else
           invalid_entry
-          menu
+          pokemon_menu
       end
 
   end
 
-  def menu_2
+  def pokemon_menu
 
       puts "To view Pokemon, enter 'view'"
       puts "To exit your Pokedex, enter 'exit'"
@@ -34,7 +35,7 @@ class PokedexCli::CLI
 
       if input == "view"
           pokemon_list
-          menu
+          description_menu
 
       elsif input == "exit"
           goodbye
@@ -44,19 +45,59 @@ class PokedexCli::CLI
       end
   end
 
+  def description_menu
+
+    puts ""
+    puts "For a Pokemon description, enter their Pokedex number."
+
+      input = gets.strip.to_i
+
+      if input > 151 || input < 1
+        invalid_entry
+        description_menu
+      else
+        pokemon_description(input)
+        looping_menu
+      end
+  end
+
+  def looping_menu
+
+        puts ""
+        puts "Do you want to view another Pokemon's description?"
+        puts ""
+        puts "If yes, enter 'yes'. If no, enter 'exit'"
+
+        input = gets.strip.downcase
+
+        if input == "yes"
+            description_menu
+
+        elsif input == "exit"
+            goodbye
+        else
+            invalid_entry
+            looping_menu
+        end
+
+    end
+
   def pokemon_list
 
       Pokedex.all.each_with_index do |pokemon, index|
-          puts "#{index + 1}. #{pokemon.pokemon_species}"
+          puts "#{index + 1}. #{pokemon.name}"
       end
 
       puts ""
-      puts ""
       puts "These are all of the original Pokemon from the Kanto region."
-      puts ""
-      puts ""
-      puts "When you are finished, enter 'exit'"
 
+  end
+
+  def pokemon_description(input)
+
+      index = input - 1
+      pokemon = Pokedex.all[index]
+      puts "#{pokemon.name}: #{pokemon.description}"
 
   end
 
