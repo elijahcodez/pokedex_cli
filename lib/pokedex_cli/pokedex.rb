@@ -2,8 +2,6 @@ class Pokedex
 
     @@all = []
 
-    @@descriptions = []
-
     attr_accessor :name, :url, :description
 
 #    def initialize(entry_number, pokemon_species, name)
@@ -27,10 +25,6 @@ class Pokedex
 
     def self.all
         @@all
-    end
-
-    def self.descriptions
-        @@descriptions
     end
 
     def self.find_by_name(name)
